@@ -1,0 +1,4 @@
+hostname: plex-spot
+rancher:
+  services_include:
+    debian-console: true

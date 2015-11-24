@@ -6,7 +6,7 @@ resource "aws_spot_instance_request" "plex-spot" {
     security_groups = [ "allow_all" ]
     key_name = "plex-spot"
 
-    # user_data = "${file("plex.yml")}"
+    user_data = "${file("plex.yml")}"
     # Spot settings
     spot_price = "0.04"
     spot_type = "one-time"
@@ -32,6 +32,13 @@ resource "aws_security_group" "allow_all" {
         from_port = 0
         to_port = 65535
         protocol = "tcp"
+        cidr_blocks = ["0.0.0.0/0"]
+    }
+
+    egress {
+        from_port = 0
+        to_port = 0
+        protocol = "-1"
         cidr_blocks = ["0.0.0.0/0"]
     }
 
