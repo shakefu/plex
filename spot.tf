@@ -1,6 +1,6 @@
 # Set up a single spot instance
 resource "aws_spot_instance_request" "plex-spot" {
-    ami = "ami-73bed013"
+    ami = "ami-58bfd138"
     availability_zone = "us-west-1b"
     instance_type = "m2.xlarge"
     # security_groups = [ "${aws_security_group.allow_all.id}" ]
