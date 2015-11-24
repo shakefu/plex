@@ -3,7 +3,7 @@ resource "aws_spot_instance_request" "plex-spot" {
     ami = "ami-58bfd138"
     availability_zone = "us-west-1b"
     instance_type = "m2.xlarge"
-    # security_groups = [ "${aws_security_group.allow_all.id}" ]
+    security_groups = [ "allow_all" ]
     key_name = "plex-spot"
 
     # user_data = "${file("plex.yml")}"
