@@ -1,6 +1,6 @@
 # Set up a single spot instance
 resource "aws_spot_instance_request" "plex-spot" {
-    ami = "ami-58bfd138"
+    ami = "ami-0f1fdc4b"
     availability_zone = "us-west-1b"
     instance_type = "m2.xlarge"
     security_groups = [ "allow_all" ]
@@ -19,6 +19,8 @@ resource "aws_spot_instance_request" "plex-spot" {
         volume_type = "gp2"
         volume_size = "20"
     }
+
+    wait_for_fulfillment = true
 }
 
 
