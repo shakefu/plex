@@ -3,6 +3,7 @@ resource "aws_instance" "plex" {
     availability_zone = "us-west-1b"
     instance_type = "m2.xlarge"
     security_groups = [ "allow_all" ]
+    key_name = "plex"
 
     user_data = "${file("plex.yml")}"
 
