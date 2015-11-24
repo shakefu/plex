@@ -1,3 +1,5 @@
+#cloud-config
+
 hostname: plex
 rancher:
   services_include:
