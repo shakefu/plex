@@ -2,3 +2,15 @@ hostname: plex-spot
 rancher:
   services_include:
     debian-console: true
+write_files:
+  - path: "/var/lib/rancher/conf/rancher_server.yml"
+    permissions: "0644"
+    owner: "root"
+    content: |
+      rancher_server:
+        image: rancher/server
+        restart: always
+        privileged: true
+        ports:
+          - "8080:8080"
+
