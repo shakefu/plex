@@ -1,4 +1,4 @@
-# Set up a single spot instance
+/*
 resource "aws_spot_instance_request" "plex-spot" {
     ami = "ami-0f1fdc4b"
     availability_zone = "us-west-1b"
@@ -22,7 +22,25 @@ resource "aws_spot_instance_request" "plex-spot" {
 
     wait_for_fulfillment = true
 }
+*/
+resource "aws_instance" "plex" {
+    ami = "ami-0f1fdc4b"
+    availability_zone = "us-west-1b"
+    instance_type = "m2.xlarge"
+    security_groups = [ "allow_all" ]
+    key_name = "plex"
 
+    user_data = "${file("plex.yml")}"
+
+    tags {
+        Name = "plex"
+    }
+
+    root_block_device = {
+        volume_type = "gp2"
+        volume_size = "20"
+    }
+}
 
 resource "aws_security_group" "allow_all" {
     name = "allow_all"
