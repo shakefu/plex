@@ -1,0 +1,7 @@
+terraform:
+  image: uzyexe/terraform
+  net: host
+  volumes:
+    - /etc/ssl/certs:/etc/ssl/certs:ro
+    - .:/data
+
