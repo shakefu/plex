@@ -1,9 +1,10 @@
 #cloud-config
 
-hostname: plex
+# hostname: plex
 rancher:
   services_include:
     debian-console: true
+    /var/lib/rancher/conf/rancher_server.yml: true
 write_files:
   - path: "/var/lib/rancher/conf/rancher_server.yml"
     permissions: "0644"

@@ -1,4 +1,5 @@
 resource "aws_spot_instance_request" "plex-spot" {
+    count = "0"
     ami = "ami-0f1fdc4b"
     availability_zone = "us-west-1b"
     instance_type = "m2.xlarge"
